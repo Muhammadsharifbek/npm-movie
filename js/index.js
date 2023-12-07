@@ -14,3 +14,17 @@ getMovies("/movie/upcoming", params)
     renderMovies(data.results, document.querySelector("[data-upcoming]"));
   })
   .catch((err) => console.log(err));
+
+getMovies("/movie/popular", params)
+  .then((data) => {
+    console.log(data);
+    renderMovies(data.results, document.querySelector("[data-popular]"));
+  })
+  .catch((err) => console.log(err));
+
+getMovies("/movie/top_rated", params)
+  .then((data) => {
+    console.log(data);
+    renderMovies(data.results, document.querySelector("[data-rated]"));
+  })
+  .catch((err) => console.log(err));

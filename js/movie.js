@@ -7,8 +7,8 @@ const movieId = new URLSearchParams(window.location.search).get("movieId") || 43
 
 getMovies(`/movie/${movieId}`).then((data) => {
   document.title = data.original_title || "Movie";
-  renderMovieBanner(data, document.querySelector.add("[data-wrapper]"));
-  renderMovieDetails(data, document.querySelector.add("[data-details]"));
+  renderMovieBanner(data, document.querySelector("[data-wrapper]"));
+  renderMovieDetails(data, document.querySelector("[data-details]"));
 });
 
 getMovies(`/movie/${movieId}/videos`).then((data) => {
