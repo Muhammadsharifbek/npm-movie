@@ -36,5 +36,6 @@ export const onSearchInput = async (e) => {
   const query = e.target.value;
 
   const data = await getMovies("/search/movie", { query, page: 1 });
+
   debonce(() => console.log(data));
 };
