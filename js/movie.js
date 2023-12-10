@@ -1,16 +1,19 @@
-import { renderMovieTrailers, renderMovieBanner, renderMovieDetails } from "./modules/render";
-import { getMovies } from "./modules/request";
+import * as els from "./modules/elements";
+import * as render from "./modules/render";
+import getMovies from "./modules/request";
 import "../scss/main.scss";
 import "bootstrap/dist/css/bootstrap.css";
+import { setPageTitle } from "./modules/helpers";
 
-const movieId = new URLSearchParams(window.location.search).get("movieId") || 432145;
+const params = new URLSearchParams(window.location.search);
+const movieId = params.get("movieId") || 454541;
 
 getMovies(`/movie/${movieId}`).then((data) => {
-  document.title = data.original_title || "Movie";
-  renderMovieBanner(data, document.querySelector("[data-wrapper]"));
-  renderMovieDetails(data, document.querySelector("[data-details]"));
+  setPageTitle(data.original_title || "Movie");
+  render.renderMovieBanner(data, els.elBannerWrapper);
+  render.renderMovieDetails(data, els.elDetailsWrapper);
 });
 
 getMovies(`/movie/${movieId}/videos`).then((data) => {
-  renderMovieTrailers(data.results, document.querySelector("[data-trailers]"));
+  render.renderMovieTrailers(data.results, els.elTrailersBanner);
 });
