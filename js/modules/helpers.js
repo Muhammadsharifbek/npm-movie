@@ -1,5 +1,6 @@
 // import { renderMovies } from "./render";
-// import getMovies from "./request";
+import getMovies from "./request";
+let timeoutId = 0;
 
 export const setPageTitle = (title) => {
   document.title = title;
@@ -23,4 +24,17 @@ export const switchLoader = (isLoading, elLoader) => {
   } else {
     elLoader.classList.add("loader--hidden");
   }
+};
+
+export const debonce = (callback, timeout = 400) => {
+  clearTimeout(timeoutId);
+
+  timeoutId = setTimeout(callback, timeout);
+};
+
+export const onSearchInput = async (e) => {
+  const query = e.target.value;
+
+  const data = await getMovies("/search/movie", { query, page: 1 });
+  debonce(() => console.log(data));
 };

@@ -6,3 +6,6 @@ export const elUpcomingMovies = document.querySelector("[data-upcoming]");
 export const elPopularMovies = document.querySelector("[data-popular]");
 export const elTopRatedMovies = document.querySelector("[data-rated]");
 export const elIndexLoader = document.querySelector("[data-index-loader]");
+
+// search.html
+export const elMoviesWrapper = document.getElementById("search-movies");

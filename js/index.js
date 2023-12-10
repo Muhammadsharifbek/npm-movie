@@ -7,10 +7,9 @@ import getMovies from "./modules/request";
 import { renderMovies } from "./modules/render";
 import * as els from "./modules/elements.js";
 import { switchLoader } from "./modules/helpers";
+import { PARAMS } from "./modules/constants";
 
-const params = { params: { page: 2 } };
-
-getMovies("/movie/upcoming", params)
+getMovies("/movie/upcoming", PARAMS)
   .then((data) => {
     switchLoader(true, els.elIndexLoader);
     renderMovies(data.results, els.elUpcomingMovies);
