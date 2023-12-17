@@ -39,3 +39,8 @@ export const onSearchInput = async (e) => {
 
   debonce(() => console.log(data));
 };
+
+export const getSearchParams = (param) => {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(param);
+};
