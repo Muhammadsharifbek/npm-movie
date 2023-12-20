@@ -8,9 +8,10 @@ export const renderMovies = (movies = [], elWrapper) => {
   let html = "";
 
   movies.forEach((movie) => {
+    const img = movie.poster_path ? API_IMG_URL + movie.poster_path : NOT_FOUND_IMG;
     html += `
     <div class="details-wrapper position-relative movie-card">
-    <img class="movie-card__img" src="${API_IMG_URL + movie.poster_path}" alt=${movie.original_title}/>
+    <img class="movie-card__img" src="${img}" alt=${movie.original_title}/>
     <div class="position-absolute movie-card__badge movie-card__badge--${calcVoteAverage(movie.vote_average)}">${movie.vote_average.toFixed(1)}</div>
     <h2 class="movie-card__title">${movie.original_title}</h2>
     <a class="movie-card__link" href="/movie.html?movieId=${movie.id}"></a>
@@ -20,10 +21,14 @@ export const renderMovies = (movies = [], elWrapper) => {
 
     `;
   });
+
+  if (!movies.length) {
+    html = `
+    <h2 class="text-center"> Movies Not Found </h2>
+    `;
+  }
   elWrapper.innerHTML = html;
 };
-
-// export default renderMovies;
 
 export const renderMovieBanner = (movie = {}, elWrapper, slider = false) => {
   elWrapper.innerHTML = `

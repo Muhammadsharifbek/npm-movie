@@ -5,6 +5,7 @@ export const elTrailersBanner = document.querySelector("[data-trailers]");
 export const elUpcomingMovies = document.querySelector("[data-upcoming]");
 export const elPopularMovies = document.querySelector("[data-popular]");
 export const elTopRatedMovies = document.querySelector("[data-rated]");
+export const elSearchedMovies = document.querySelector("[data-search]");
 export const elIndexLoader = document.querySelector("[data-index-loader]");
 export const elSearchForm = document.getElementById("farm");
 

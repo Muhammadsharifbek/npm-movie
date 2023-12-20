@@ -30,3 +30,5 @@ getMovies("/movie/popular", PARAMS)
 getMovies("/movie/top_rated", PARAMS)
   .then((data) => renderMovies(data.results, els.elTopRatedMovies))
   .catch((err) => console.error(err));
+
+els.elSearchForm.addEventListener("input", onSearchInput);

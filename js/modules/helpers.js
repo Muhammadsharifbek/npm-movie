@@ -1,4 +1,5 @@
 // import { renderMovies } from "./render";
+import { elSearchedMovies } from "./elements";
 import getMovies from "./request";
 let timeoutId = 0;
 
@@ -37,7 +38,12 @@ export const onSearchInput = async (e) => {
 
   const data = await getMovies("/search/movie", { query, page: 1 });
 
-  debonce(() => console.log(data));
+  elSearchedMovies.previousElementSibling.classList.remove("d-none");
+
+  if (!query) {
+    elSearchedMovies.previousElementSibling.classList.add("d-none");
+  }
+  debonce(() => renderMovies(data.result, elSearchedMovies));
 };
 
 export const getSearchParams = (param) => {
