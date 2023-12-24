@@ -68,3 +68,20 @@ export const renderMovieTrailers = (trailers = [], elWrapper) => {
 
   elWrapper.innerHTML = html;
 };
+
+export const renderPagination = (movies, currentPage, page, totalPages, totalResults, elWrapper) => {
+  elWrapper.innerHTML = "";
+  let html = "";
+
+  const pagesArr = new Array(totalPages).fill("").map((_, idx) => idx + 1);
+
+  pagesArr.forEach((page) => {
+    const isActive = page === currentPage;
+
+    html += `
+ <li class="page-item ${isActive ? "active" : ""}"><a class="page-link" href="/?page=${page}">${page}</a></li>
+`;
+  });
+
+  elWrapper.innerHTML = html;
+};

@@ -8,12 +8,15 @@ import { setPageTitle } from "./modules/helpers";
 const params = new URLSearchParams(window.location.search);
 const movieId = params.get("movieId") || 454541;
 
-getMovies(`/movie/${movieId}`).then((data) => {
-  setPageTitle(data.original_title || "Movie");
-  render.renderMovieBanner(data, els.elBannerWrapper);
-  render.renderMovieDetails(data, els.elDetailsWrapper);
-});
+const fetches = async () => {
+  //1
+  const movie = await getMovies(`/movie/${movieId}`).setPageTitle(movie.original_title || "Movie");
+  render.renderMovieBanner(movie, els.elBannerWrapper);
+  render.renderMovieDetails(movie, els.elDetailsWrapper);
 
-getMovies(`/movie/${movieId}/videos`).then((data) => {
-  render.renderMovieTrailers(data.results, els.elTrailersBanner);
-});
+  //2
+  const videos = await getMovies(`/movie/${movieId}/videos`);
+  render.renderMovieTrailers(videos.results, els.elTrailersBanner);
+};
+
+fetches();

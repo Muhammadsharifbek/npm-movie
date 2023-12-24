@@ -8,6 +8,6 @@ export const elTopRatedMovies = document.querySelector("[data-rated]");
 export const elSearchedMovies = document.querySelector("[data-search]");
 export const elIndexLoader = document.querySelector("[data-index-loader]");
 export const elSearchForm = document.getElementById("farm");
-
+export const elPagination = document.getElementById("pagination");
 // search.html
 export const elMoviesWrapper = document.getElementById("search-movies");

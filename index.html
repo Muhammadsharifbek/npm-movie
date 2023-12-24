@@ -21,19 +21,26 @@
 
     <div class="body_card">
       <h1 class="title">Upcoming Movies</h1>
-      <div class="d-flex container flex-wrap justify-content-center gap-3" data-upcoming>
-        <div class="loader" data-index-loader>
-          <img class="loader__img" src="/images/loader.svg" alt="loader" />
-        </div>
+      <div class="d-flex container flex-wrap justify-content-center gap-3" data-upcoming></div>
+
+      <!-- pagination -->
+
+      <div class="d-flex justify-content-center pb-4">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination flex-wrap justify-content-center" id="pagination"></ul>
+        </nav>
       </div>
 
-      <h2 class="title">Popular Movies</h2>
+      <!-- <h2 class="title">Popular Movies</h2>
 
       <div class="d-flex container flex-wrap justify-content-center gap-3" data-popular></div>
 
       <h2 class="title">Top Rated Movies</h2>
 
-      <div class="d-flex container flex-wrap justify-content-center gap-3" data-rated></div>
+      <div class="d-flex container flex-wrap justify-content-center gap-3" data-rated></div> -->
+    </div>
+    <div class="loader" data-index-loader>
+      <img class="loader__img" src="/images/loader.svg" alt="loader" />
     </div>
 
     <script type="module" src="js/index.js"></script>
